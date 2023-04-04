@@ -1,5 +1,7 @@
+const url = 'http://127.0.0.1:8000'
+
 const getCategories = () => {
-    return fetch('http://127.0.0.1:8002/api/quizz/categories')
+    return fetch(`${url}/api/quizz/categories`)
         .then( response => {
             if (response.ok) {
                 return response.json()
@@ -8,9 +10,8 @@ const getCategories = () => {
         })
 }
 
-// TEST !!
-const getQuestions = () => {
-    return fetch('http://127.0.0.1:8002/api/quizz/categories/chateau/questions/10')
+const getQuestions = (categorie, nbrQuestions) => {
+    return fetch(`${url}/api/quizz/categories/${categorie}/questions/${nbrQuestions}`)
         .then( response => {
             if (response.ok) {
                 return response.json()
