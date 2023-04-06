@@ -17,11 +17,16 @@ const initListeCategories = (categories) => {
         option.value = categorie.slug
         option.innerText = categorie.libelle
         document.getElementById("listeCategories").appendChild(option)
-        console.log(categorie)
     }
 }
 
 const initQuestions = (result) =>{
+    document.getElementById("questionnaire").style.display = "flex"
+    for (const question of result) {
+        let p = document.createElement("p")
+        p.innerText = question.libelle
+        document.getElementById("listeCategories").appendChild(p)
+    }
     console.log(result)
 }
 
