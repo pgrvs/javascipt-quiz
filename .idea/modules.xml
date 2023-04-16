@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/javascript-quizz-api.iml" filepath="$PROJECT_DIR$/.idea/javascript-quizz-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/javascript-quiz.iml" filepath="$PROJECT_DIR$/.idea/javascript-quiz.iml" />
     </modules>
   </component>
 </project>

@@ -25,7 +25,7 @@ const initQuestions = (result) =>{
     for (const question of result) {
         let p = document.createElement("p")
         p.innerText = question.libelle
-        document.getElementById("listeCategories").appendChild(p)
+        document.getElementById("question").appendChild(p)
     }
     console.log(result)
 }
