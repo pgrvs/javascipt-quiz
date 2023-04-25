@@ -1,4 +1,4 @@
-const url = 'http://127.0.0.1:8001'
+const url = 'http://127.0.0.1:8000'
 
 const getCategories = () => {
     return fetch(`${url}/api/quiz/categories`)
