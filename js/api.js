@@ -17,7 +17,7 @@ const getQuestions = (categorie, nbrQuestions) => {
                 return response.json()
             }
             throw new Error("Erreur : Vérifier votre endPoint")
-        })
+})
 }
 
 // rendre disponible cette fonction dans d'autre module
