@@ -1,0 +1,41 @@
+#form {
+    border: solid 3px #a1a1a1;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20vh;
+}
+
+#score{
+    margin-top: 20px;
+    justify-content: center;
+    overflow-wrap: anywhere;
+}
+
+.ProgressBar {
+    display: block;
+    width: 300px;
+    height: 25px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.ProgressBar-background,
+.ProgressBar-percentage {
+    background: #198754;
+    height: 100%;
+}
+
+.ProgressBar-background {
+    opacity: 0.2;
+    width: 100%;
+}
+
+.ProgressBar-percentage {
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}

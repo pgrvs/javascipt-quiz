@@ -32,7 +32,7 @@ const initQuestions = (result) =>{
         questionsAffiche.push(question)
         let divQestionReponses = document.createElement("div")
         divQestionReponses.id = "questionEtReponse" + numQuestion
-        divQestionReponses.className = "border border-2 border-black rounded rounded-4 my-3 mx-auto w-75 p-3"
+        divQestionReponses.className = "border border-2 border-secondary bg-white rounded rounded-4 my-3 mx-auto w-75 p-3"
         document.getElementById("questionnaire").appendChild(divQestionReponses)
 
         let divQestion = document.createElement("div")
@@ -52,7 +52,7 @@ const initQuestions = (result) =>{
 
         let pQuestion = document.createElement("p")
         pQuestion.innerText = question.libelle
-        pQuestion.className = "badge rounded-pill text-bg-info"
+        pQuestion.className = "text-bg-success bg-opacity-75 rounded border border-success fs-6 overflow-visible"
         divQestion.appendChild(pQuestion)
 
         let i = 0
@@ -101,7 +101,6 @@ const recupereSelection = () => {
 const verifReponse = () => {
     for (const key in reponsesSelectionne) {
         document.getElementById(`erreur${parseInt(key)+1}`).style.display = "none"
-        document.getElementById(`questionEtReponse${parseInt(key)+1}`).className = "border border-2 border-black rounded rounded-4 my-3 mx-auto w-75 p-3"
         if (reponsesSelectionne[key] === null) {
             document.getElementById(`erreur${parseInt(key)+1}`).innerText = "Merci de sélectionner une réponse."
             document.getElementById(`erreur${parseInt(key)+1}`).style.display = ""
@@ -142,12 +141,16 @@ const correction = () => {
     }
 }
 
+
 document.querySelector("#lancer").addEventListener("click", () => {
     categorie = document.getElementById("listeCategories").value
     nbrQuestions = document.getElementById("nbrQuestions").value
     if (nbrQuestions <= 0 ){
         document.getElementById("erreur").style.display = ""
         document.getElementById("erreur").innerText = "Le nombre de questions ne peut pas être inférieur ou égale à 0."
+    } else if (nbrQuestions > 30 ){
+        document.getElementById("erreur").style.display = ""
+        document.getElementById("erreur").innerText = "Le nombre de questions ne peut pas être supérieur à 30."
     } else {
         document.getElementById("form").style.display = "none"
        getQuestions(categorie, nbrQuestions)
@@ -161,7 +164,9 @@ document.querySelector("#valider").addEventListener("click", () => {
     if (!verifReponse()) return
     const score = calculScore()
     document.getElementById('score').style.display = ""
-    document.getElementById('score').innerText = `${score} / ${questionsAffiche.length}`
+    document.getElementById('divScore').innerText = `${score} / ${questionsAffiche.length}`
+    const pourcentage = (score * 100)/questionsAffiche.length
+    document.getElementById('ProgressBar-percentage').style.width = `${pourcentage}` + "%"
     correction()
     window.location.href=`#score`
     document.getElementById('valider').style.display = "none"
